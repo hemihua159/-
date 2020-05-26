@@ -8,3 +8,6 @@
 所遇难点，如何比较本地目录和bucket目录文件差异
 小组内利用org.apache.commons.io监控文件变化
 （class3)
+
+（5.26）完善小组作业，学习实训操作，利用spark对文件进行分词计算
+通过SSH进入spark账号，执行SQL操作，使用数据表计算，Hive登录与计算
