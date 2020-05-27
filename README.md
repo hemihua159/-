@@ -11,3 +11,6 @@
 
 （5.26）完善小组作业，学习实训操作，利用spark对文件进行分词计算
 通过SSH进入spark账号，执行SQL操作，使用数据表计算，Hive登录与计算
+
+（5.27）创建外部表，学习Grennplum数据聚合，在IDEA中进行Module的创建，编辑Demo类
+复习巩固Spark-SQL命令。
