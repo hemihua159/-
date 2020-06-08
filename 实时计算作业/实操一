@@ -1,1 +1,22 @@
+import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+import org.apache.flink.streaming.api.scala._
+import org.apache.flink.streaming.api.windowing.time.Time
 
+object Main {
+  val target="b"
+  def main(args: Array[String]) {
+    val env = StreamExecutionEnvironment.getExecutionEnvironment
+    //Linux or Mac:nc -l 9999
+    //Windows:nc -l -p 9999
+    val text = env.socketTextStream("localhost", 9999)
+
+    val counts = text.flatMap { _.toLowerCase.split("\\W+") filter {  _.contains(target) } }
+          .map { (_, 1) }
+         .keyBy(0)
+          .timeWindow(Time.seconds(60))  //定义一个60秒的翻滚窗口
+         .sum(1)
+
+    counts.print()
+    env.execute("Window Stream WordCount")
+  }
+}
